@@ -170,10 +170,10 @@ mat = np.array(acc_test)
 if FLAGS.dataset == 'cora':
     val_index_best =  np.argmin(np.array(cost_val))
     print('best epoch:   ',val_index_best)
-    print('test result:  ',mat[val_index_best])
+    print('test result: ', f"{mat[val_index_best]:.3f}")
 
 elif FLAGS.dataset == 'citeseer' or FLAGS.dataset == 'pubmed':
     val_index_best =  np.argmax(np.array(acc_val))
     print('best epoch:   ',val_index_best)
-    print('test result:  ',mat[val_index_best])
+    print('test result: ', f"{mat[val_index_best]:.3f}")
 
