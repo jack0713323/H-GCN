@@ -1,5 +1,5 @@
 from inits import *
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, normalize
 import scipy.sparse as sp
 import numpy as np 
