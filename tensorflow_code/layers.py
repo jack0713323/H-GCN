@@ -215,7 +215,8 @@ class GraphConvolution(Layer):
 
         supports = tf.convert_to_tensor(supports)
         supports = tf.transpose(supports, [1, 2, 0])
-        output = tf.squeeze(tf.layers.conv1d(supports, 1, 1, use_bias=False))
+        output = tf.squeeze(tf.keras.layers.Conv1D(1, 1, use_bias=False)(supports))
+
 
 
         # bias
