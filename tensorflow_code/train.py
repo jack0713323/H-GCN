@@ -87,13 +87,15 @@ for i in range(len(adj_list)):
     adj_list[i] = [preprocess_adj(adj_list[i])]
 
 # Define placeholders
+
 placeholders = {
-    'features': tf.sparse.SparseTensor(tf.float32, shape=tf.constant(features[2], dtype=tf.int64)),
+    'features': tf.sparse_placeholder(tf.float32, shape=[None, None]),
     'labels': tf.placeholder(tf.float32, shape=(None, y_train.shape[1])),
     'labels_mask': tf.placeholder(tf.int32),
     'dropout': tf.placeholder_with_default(0., shape=()),
     'num_features_nonzero': tf.placeholder(tf.int32)  # helper variable for sparse dropout
 }
+
 
 
 # Create model
