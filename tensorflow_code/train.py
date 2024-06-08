@@ -3,7 +3,7 @@ from __future__ import print_function
 
 import time
 import tensorflow.compat.v1 as tf
-
+tf.disable_eager_execution()
 from utils import *
 from models import GCN, MLP,HGCN
 from coarsen import *
@@ -88,7 +88,7 @@ for i in range(len(adj_list)):
 
 # Define placeholders
 placeholders = {
-    'features': tf.sparse_placeholder(tf.float32, shape=tf.constant(features[2], dtype=tf.int64)),
+    'features': tf.sparse.SparseTensor(tf.float32, shape=tf.constant(features[2], dtype=tf.int64)),
     'labels': tf.placeholder(tf.float32, shape=(None, y_train.shape[1])),
     'labels_mask': tf.placeholder(tf.int32),
     'dropout': tf.placeholder_with_default(0., shape=()),
